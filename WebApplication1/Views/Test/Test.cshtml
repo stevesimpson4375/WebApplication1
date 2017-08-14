@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        <script>
+            setInterval(function () {
+                location.reload();
+            }, 24000);
+            window.onload = function () {
+                var testit = @Request.Params["test"];
+                if (testit == 5) {
+                    window.open("http://www.google.com");
+                    window.open("https://www.gog.com");
+                    testit = 1;
+
+                    var str = location.href;
+                    str = str.substring(0, str.length - 6);
+                    location.href = str + 'test=1';
+                }
+            
+    }
+        </script>
+        @Request.Params["test"]
+    </div>
+    <div>
+        <object id="iframeId" type="text/html" data="https://www.google.com" style="width:100%; height:400px">
+            <p>backup content</p>
+        </object>
+        <iframe src="https://www.gog.com"></iframe>
+        @*<script>
+            function myFunction() {
+                setInterval(function () {
+                    location.reload();
+                }, 24000);
+            }
+        </script>*@
+    </div>
+</body>
+</html>
